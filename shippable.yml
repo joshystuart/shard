@@ -1,0 +1,28 @@
+language: php
+
+php: 
+  - 5.4
+  - 5.5
+
+matrix:
+  allow_failures:
+    - php: 5.5
+  
+services:
+  - mongodb
+	
+before_script: 
+  - mkdir -p shippable/testresults
+  - mkdir -p shippable/codecoverage
+  - echo "extension=mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - echo "xdebug.max_nesting_level = 1000" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - composer self-update
+  - composer install
+  
+script:
+  - phpunit --log-junit shippable/testresults/junit.xml --coverage-clover shippable/codecoverage/clover.xml tests/
+  - vendor/bin/phpcs --standard=PSR2 src/ tests/Zoop/
+  - vendor/bin/phpmd src/ text ruleset.xml
+  
+notifications:
+   email: false
