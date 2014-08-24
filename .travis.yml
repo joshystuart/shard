@@ -14,8 +14,7 @@ before_script:
   - composer install --dev
 
 script:
-  - cd ./tests
-  - ../vendor/bin/phpunit --coverage-clover ../build/clover.xml
-  - php ../build/coverage-checker.php ../build/clover.xml 84
-  - ../vendor/bin/phpmd --exclude ClassMetadataTrait.php ../lib/ text ruleset.xml
-  - ../vendor/bin/phpcs --standard=PSR2 ../lib/ ./Zoop/
+  - vendor/bin/phpunit --coverage-clover build/clover.xml
+  - php build/coverage-checker.php build/clover.xml 84
+  - vendor/bin/phpmd --exclude ClassMetadataTrait.php lib/ text ruleset.xml
+  - vendor/bin/phpcs --standard=PSR2 lib/ tests/Zoop/
