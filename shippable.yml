@@ -21,6 +21,7 @@ before_script:
   
 script:
   - phpunit --log-junit shippable/testresults/junit.xml --coverage-clover shippable/codecoverage/clover.xml tests/
+  - php build/coverage-checker.php shippable/codecoverage/clover.xml 84
   - vendor/bin/phpcs --standard=PSR2 lib/ tests/Zoop/
   - vendor/bin/phpmd lib/ text ruleset.xml
   
