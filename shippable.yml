@@ -11,6 +11,9 @@ matrix:
 services:
   - mongodb
 	
+env:
+    secure: c36554humvq/bRI8qDaP5edNaKkkc7YcSN9pFT4sP6jXxx8YD5NZ2NFkeGKPbLg0N77zjJEn6gvBX8jWGMQ5+6/qNwvnjPiLFOJOvR+M/ptB7eD9PtWBJcojFJLY5vurfSfCxLDVGPWYEOL5AiO5Hl1I0YA7/q36DXc5JwLdYvr9ZdMjaKWtRmYEb8Wq3iunxtR76nS1x3gbyxqgPHo8BO/JgCPn+qMr+lAua8+VbvBhLIWw3XPV99yJ2ygpU4oempi0FKxk0AQPjxiLj1U/emKak62KQyqx/8yAllcnGNG+agdittunv/P2/7Bd7raFjefvxlMUTisVJyvzUNN0bg==
+	
 before_script: 
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
